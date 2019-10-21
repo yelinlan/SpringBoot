@@ -1,0 +1,70 @@
+<section>
+<h3>file upload and downlod</h3>
+	<a href="/mytest/download?fileName=阿里巴巴Java开发手册v1.2.0.pdf">download file</a>
+<p>=====================================================================</p>
+<p th:text="${message}"></p>
+	<form action = "/mytest/uploadBatchFile" method = "post" enctype = "multipart/form-data">
+	<input type = "file" name = "files">
+	<input type = "file" name = "files">
+	<button type="submit">批量上传</button>
+	</form>	
+
+<p>=====================================================================</p>
+	<h3>上传文件，使用multipart/form-data类型</h3>
+	<form action = "/mytest/upload" method = "post" enctype = "multipart/form-data">
+	<input type = "file" name = "file">
+	<button type="submit">上传</button>
+	</form>	
+<p>=====================================================================</p>
+	<h3>th:text</h3>
+	<h1 th:text = "${thymeleafTitle}">this is ThymeLeaf title</h1>
+	<p th:text = "${thymeleafTitle}">this is ThymeLeaf title</p>
+<p>=====================================================================</p>
+	<h3>th:if ,th:unless.</h3>
+	<p th:if="${checked} == true">If true,this will display.</p>
+	<p th:unless="${checked} == false">If not false ,this will display</p>
+	<p th:if="${currentNumber}&lt;100">print if the currentNumber & lt;100</p>
+	<p th:if="${thymeleafTitle} == null">name is null</p>
+<p>=====================================================================</p>
+	<h3>th:attr</h3>
+	checkbox:<input type="text" th:attr="type=${changeType}" th:checked="${checked}">
+<p>=====================================================================</p>
+	<h3>th:attr</h3>
+	<a th:href="@{http://baidu.com}" target="_blank">Click it to turn to baidu</a>
+	<a th:href="@{${baiduUrl}}" target="_blank">Click it to turn to Shop beauty</a>
+	<div >
+	<img th:src="@{${shopLogo}}" style="width:50px;height:50px">
+	</div>
+<p>=====================================================================</p>
+	<h3>th:object</h3>
+	<div th:object = "${country}">
+	<p th:text = "*{countryId}">countryId</p>
+	<p th:text = "${country.countryName}">countryName</p>
+	<p th:text = "${country.countryCode}">countryCode</p>
+	</div>
+<p>=====================================================================</p>
+	<h3>post form, th:action, th:object, th:field</h3>
+	<form th:action ="${updateCityUri}"  th:method="post" th:object = "${city}">
+	City Id:  				<input th:field ="${city.cityId}"  readonly>
+	City Name:  			<input th:field ="${city.cityName}"  readonly>
+	Local City Name:  		<input th:field ="${city.localCityName}"  >
+	<button type = "submit">Submit Info</button>
+	</form>
+<p>=====================================================================</p>
+	<h3>th:each</h3>
+	<table>
+	<th>cityId</th><th>cityName</th><th>countryId</th>
+	<tr th:each="city : ${cities}">
+		<td th:text="${city.cityId}"></td>
+		<td th:text="${city.cityName}"></td>
+		<td th:text="${city.countryId}"></td>
+	</tr>
+	</table> 
+<p>=====================================================================</p>
+	<select>
+	<option th:each="city,cityStatus : ${cities}"
+	th:value="${city.cityId}" th:text="${city.cityName}"></option>
+	</select>
+<p>=====================================================================</p>
+	
+</section>
