@@ -40,17 +40,16 @@ public class UrlFilter implements Filter{
 //		Map<String, String[]> paraMap = httpRequest.getParameterMap();
 //		paraMap.put("key", new String[]{"***"});
 		HttpServletRequestWrapper wrapper = new HttpServletRequestWrapper(httpRequest){
-
 			@Override
 			public String getParameter( String name) {
 				String value = httpRequest.getParameter(name);
 				if(null != value){
-					return  value.replace("fuck", "***");
+					return value.replace("fuck", "***");
 				}
 				return super.getParameter(name);
 			}
-			
 		};
+		
 		chain.doFilter(wrapper, response);
 	}
 

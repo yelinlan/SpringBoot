@@ -22,23 +22,22 @@ public class WenMvcConfig implements WebMvcConfigurer {
 	private UriInterceptor uriInterceptor;
 
 	/**
-		 * 添加过滤器
-		 */
-		@Bean
-		FilterRegistrationBean<UrlFilter> filterRegistrationBean(){
-			FilterRegistrationBean<UrlFilter> bean = new 
-					FilterRegistrationBean<UrlFilter>();
-			bean.setFilter(new UrlFilter());
-			return bean;
-		}
+	 * 添加过滤器
+	 */
+	@Bean
+	public FilterRegistrationBean<UrlFilter> filterRegistrationBean() {
+		FilterRegistrationBean<UrlFilter> bean = new FilterRegistrationBean<UrlFilter>();
+		bean.setFilter(new UrlFilter());
+		return bean;
+	}
 
 	/*
 	 * 添加拦截器
 	 */
-	 @Override
-	 public void addInterceptors(InterceptorRegistry registry) {
-	 registry.addInterceptor(uriInterceptor).addPathPatterns("/**");
-	
-	 }
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(uriInterceptor).addPathPatterns("/**");
+
+	}
 
 }

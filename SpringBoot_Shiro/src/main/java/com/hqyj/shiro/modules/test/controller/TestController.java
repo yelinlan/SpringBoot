@@ -7,6 +7,8 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -275,10 +277,12 @@ public class TestController {
 	public String postTest1() {	
 		return "This is  postTest1 test";
 	}
+	
+	//过滤
 	@RequestMapping(value="/getTest")//OK
 	@ResponseBody
-	public String getTest(@RequestParam String name) {	
-		return name;
+	public String getTest(HttpServletRequest request) {
+		return request.getParameter("name");
 	}
 
 }
