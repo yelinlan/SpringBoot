@@ -1,4 +1,4 @@
-package com.hqyj.shiro.config;
+package com.hqyj.shiro.config.web;
 
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
 

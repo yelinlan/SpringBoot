@@ -21,7 +21,6 @@ public class UriInterceptor implements HandlerInterceptor{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		
-		System.out.println("start interceptor.------------------");
 		return HandlerInterceptor.super.preHandle(request, response, handler);
 	}
 
@@ -39,7 +38,6 @@ public class UriInterceptor implements HandlerInterceptor{
 		if(modelAndView.getModelMap().get("template") == null){
 			if(uri.startsWith("/")){
 				 uri = uri.substring(1);
-				 System.err.println(uri+"------------------");
 			}
 			modelAndView.addObject("template",uri.toLowerCase());
 		}
@@ -51,7 +49,6 @@ public class UriInterceptor implements HandlerInterceptor{
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
-		System.out.println("End interceptor.------------------");
 		HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
 	}
 

@@ -1,4 +1,4 @@
-package com.hqyj.shiro.config;
+package com.hqyj.shiro.config.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
